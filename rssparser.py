@@ -13,12 +13,12 @@ class MainApp(tk.Frame):
 		
 		self.urls = ['https://www.sydsvenskan.se/rss.xml?latest=1&id=b481b3bf-3124-4431-8db1-45e544ba3686', 'https://www.svd.se/?service=rss']
 		self.item_list = []
-		self.Lb1 = Listbox(master, width=70, height=25)
-		self.Lb1.bind('<Double-Button-1>', self.on_click)
+		self.listbox_main = Listbox(master, width=70, height=25)
+		self.listbox_main.bind('<Double-Button-1>', self.on_click)
 
 		self.btn_editsrc = Button(master, text="Edit sources", width=5, command=self.open_src_edit_window)
 		self.btn_editsrc.pack(fill=X)
-		self.Lb1.pack()
+		self.listbox_main.pack()
 		self.refresh()
 
 	
@@ -26,25 +26,24 @@ class MainApp(tk.Frame):
 		
 	def on_click(self, event):
 		
-		link = self.item_list[self.Lb1.curselection()[0]]
+		link = self.item_list[self.listbox_main.curselection()[0]]
 		webbrowser.open(link['link'])
 		
 		
 	def refresh(self):
-		self.Lb1.delete(0, 'end')
+		self.listbox_main.delete(0, 'end')
 		self.item_list.clear()
 		for x in self.urls:
 			feed = feedparser.parse(x)
 			for item in feed['items']:
 
 				self.item_list.append(item)
-				self.Lb1.insert('end', item['title'])
-		self.Lb1.bind('<Double-Button-1>', self.on_click)
-		self.Lb1.pack()
+				self.listbox_main.insert('end', item['title'])
+		self.listbox_main.bind('<Double-Button-1>', self.on_click)
+		self.listbox_main.pack()
 	
 	
 	def open_src_edit_window(self):
-		
 		SourcesWindow(tk.Toplevel(self.master), self)
 		
 	
@@ -106,10 +105,6 @@ class InputWindow(tk.Frame):
 		self.edit_window.refresh_sources()
 		
 	
-	
-	
-	
-
 def main():
 	master = Tk()
 	master.title("RSS")
