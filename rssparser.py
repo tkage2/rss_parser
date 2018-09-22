@@ -27,12 +27,10 @@ class MainApp(tk.Frame):
 	def on_click(self, event):
 		
 		link = self.item_list[self.Lb1.curselection()[0]]
-		#print(link['link'])
 		webbrowser.open(link['link'])
 		
 		
 	def refresh(self):
-		#print("Refreshing!")
 		self.Lb1.delete(0, 'end')
 		self.item_list.clear()
 		for x in self.urls:
@@ -55,7 +53,6 @@ class MainApp(tk.Frame):
 class SourcesWindow(tk.Frame):
 	def __init__(self, master, main_app):
 		tk.Frame.__init__(self, master)
-		#self.mainapp = MainApp(master)
 		
 		self.master.title("Sources")
 		self.main_app = main_app
@@ -85,14 +82,12 @@ class SourcesWindow(tk.Frame):
 	
 	
 	def remove_source(self, input):
-		print("rmv src")
 		index = self.lb_sources.curselection()[0]
 		del self.main_app.urls[index]
 		self.refresh_sources()
 	
 	def save_sources(self):
 		self.main_app.refresh()
-		#print("Saved!")
 		self.master.destroy()
 		
 	
