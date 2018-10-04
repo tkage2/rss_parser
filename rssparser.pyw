@@ -6,7 +6,7 @@ import time
 from threading import Thread
 
 
-	
+# Main window	
 class MainApp(tk.Frame):
 	def __init__(self, master):
 		tk.Frame.__init__(self, master)
@@ -25,7 +25,6 @@ class MainApp(tk.Frame):
 		
 		
 	def on_click(self, event):
-		
 		link = self.item_list[self.listbox_main.curselection()[0]]
 		webbrowser.open(link['link'])
 		
@@ -47,8 +46,7 @@ class MainApp(tk.Frame):
 		SourcesWindow(tk.Toplevel(self.master), self)
 		
 	
-	
-	
+# Window for sources	
 class SourcesWindow(tk.Frame):
 	def __init__(self, master, main_app):
 		tk.Frame.__init__(self, master)
@@ -89,8 +87,8 @@ class SourcesWindow(tk.Frame):
 		self.main_app.refresh()
 		self.master.destroy()
 		
-	
-			
+
+# Window for adding sources.		
 class InputWindow(tk.Frame):
 	def __init__(self, master, edit_window):
 		self.edit_window = edit_window
@@ -109,7 +107,7 @@ def main():
 	master = Tk()
 	master.title("RSS")
 	app = MainApp(master)
-	master.after(10000000, app.refresh)
+	master.after(10000000, app.refresh) # Built-in callback-function to refresh listbox_main after mainloop, timer added in milliseconds.
 	master.mainloop()
 	
 if __name__ == '__main__':

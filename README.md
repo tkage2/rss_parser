@@ -1,6 +1,4 @@
 # rss_parser
-
-## rss_parser
 Simple RSS-parser to use with a python environment. 
 
 ## Getting Started
@@ -11,7 +9,7 @@ Example:
 ```shell
 cd ~
 git clone https://github.com/tkage2/rss_parser
-cd rss_parser
+cd rss_parser/
 python rssparser.pyw
 ```
 
