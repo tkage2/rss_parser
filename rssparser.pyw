@@ -101,6 +101,7 @@ class InputWindow(tk.Frame):
 	def add_source_to_urls(self, input):
 		self.edit_window.main_app.urls.append(input)
 		self.edit_window.refresh_sources()
+		self.master.destroy()
 		
 	
 def main():
