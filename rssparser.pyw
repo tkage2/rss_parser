@@ -11,7 +11,7 @@ class MainApp(tk.Frame):
 	def __init__(self, master):
 		tk.Frame.__init__(self, master)
 		
-		self.urls = ['https://www.sydsvenskan.se/rss.xml?latest=1&id=b481b3bf-3124-4431-8db1-45e544ba3686', 'https://www.svd.se/?service=rss']
+		self.urls = []
 		self.item_list = []
 		self.listbox_main = Listbox(master, width=70, height=25)
 		self.listbox_main.bind('<Double-Button-1>', self.on_click)
