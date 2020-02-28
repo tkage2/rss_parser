@@ -1,3 +1,5 @@
+![Alt text](doc/screenshot_rssparser.png?raw=true "Screenshot of application")
+
 # rss_parser
 Simple RSS-parser to use with a python environment. 
 
